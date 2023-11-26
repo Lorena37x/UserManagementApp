@@ -1,0 +1,91 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "users": [
+    {
+      "firstName": "Lorena",
+      "lastName": "Papeša",
+      "phone": "0911939190",
+      "email": "lorena.papesa37@gmail.com",
+      "id": 1
+    },
+    {
+      "firstName": "Pero",
+      "lastName": "Perić",
+      "phone": "0911234567",
+      "email": "peroperic@gmail.com",
+      "id": 2
+    },
+    {
+      "firstName": "Zdenko",
+      "lastName": "Zdenkić",
+      "phone": "0981234567",
+      "email": "zdenko_zdenkic@gmail.com",
+      "id": 3
+    },
+    {
+      "firstName": "Mirko",
+      "lastName": "Mirkić",
+      "phone": "0989876543",
+      "email": "mirko.mirkic@gmail.com",
+      "id": 4
+    },
+    {
+      "firstName": "Ana",
+      "lastName": "Anić",
+      "phone": "0951122333",
+      "email": "ana.anic1@gmail.com",
+      "id": 5
+    },
+    {
+      "firstName": "Iva",
+      "lastName": "Ivić",
+      "phone": "0995550555",
+      "email": "ivaivic123@gmail.com",
+      "id": 6
+    },
+    {
+      "firstName": "Dora",
+      "lastName": "Dorić",
+      "phone": "0991115555",
+      "email": "d_doric5@gmail.com",
+      "id": 7
+    },
+    {
+      "firstName": "Jozo",
+      "lastName": "Jozić",
+      "phone": "0971357973",
+      "email": "jozo1995@gmail.com",
+      "id": 8
+    },
+    {
+      "firstName": "Božo",
+      "lastName": "Božić",
+      "phone": "0920246820",
+      "email": "bbozic0@gmail.com",
+      "id": 9
+    },
+    {
+      "firstName": "Ivan",
+      "lastName": "Horvat",
+      "phone": "0913759123",
+      "email": "ivan.horvat96@gmail.com",
+      "id": 10
+    }
+  ]
+}

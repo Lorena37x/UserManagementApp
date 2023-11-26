@@ -1,7 +1,7 @@
 <div mat-dialog-title>
     <h1>Add user</h1>
 </div>
-<form [formGroup]="addUser">
+<form [formGroup]="addUser" (ngSubmit)="onSubmit()">
     <div mat-dialog-content>
         <div class="row">
             <mat-form-field>
