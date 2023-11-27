@@ -2,20 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AddEditUserComponent } from './add-edit-user/add-edit-user.component';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from './services/user.service';
-import {AfterViewInit} from '@angular/core';
-import {MatPaginator, MatPaginatorModule} from '@angular/material/paginator';
-import {MatSort, MatSortModule} from '@angular/material/sort';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-
-
-export interface UserData {
-  firstName: string;
-  lastName: string;
-  phone: string;
-  email: string;
-}
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-root',
@@ -27,9 +14,6 @@ export class AppComponent implements OnInit {
 
   displayedColumns: string[] = ['firstName', 'lastName', 'phone', 'email'];
   dataSource!: MatTableDataSource<any>;
-
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
     private _dialog: MatDialog, 
@@ -54,7 +38,6 @@ export class AppComponent implements OnInit {
     const dialogRef = this._dialog.open(AddEditUserComponent, {
       data,
     });
-
     dialogRef.afterClosed().subscribe({
       next: (val) => {
         if (val) {
@@ -68,8 +51,6 @@ export class AppComponent implements OnInit {
     this._userService.getUserList().subscribe({
       next: (res: any[] | undefined) => {
         this.dataSource = new MatTableDataSource(res);
-        this.dataSource.sort = this.sort;
-        this.dataSource.paginator = this.paginator;
       },
       error: console.log,
     });

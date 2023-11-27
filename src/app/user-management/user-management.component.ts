@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {MatTableModule} from '@angular/material/table';
 import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 import { MatDialog } from '@angular/material/dialog';
 
