@@ -61,7 +61,7 @@ export class AddEditUserComponent implements OnInit {
       if(this.data) {
         this._userService.updateUser(this.data.id, this.addUser.value).subscribe({
           next: (val: any) => {
-            alert('User updated successfully!');
+            alert('User updated!');
             this._dialogRef.close(true);
           },
           error: (err: any) => {
@@ -71,7 +71,7 @@ export class AddEditUserComponent implements OnInit {
       } else {
         this._userService.addUser(this.addUser.value).subscribe({
           next: (val: any) => {
-            alert('User added successfully!');
+            alert('User added!');
             this._dialogRef.close(true);
           },
           error: (err: any) => {
