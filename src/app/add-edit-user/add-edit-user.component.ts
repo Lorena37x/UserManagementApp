@@ -16,7 +16,7 @@ export class AddEditUserComponent implements OnInit {
   constructor(
     private _fb: FormBuilder, 
     private _userService: UserService, 
-    private _dialogRef: DialogRef<AddEditUserComponent>,
+    private _dialogRef: MatDialogRef<AddEditUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     // private _coreService: CoreService
   ) {
@@ -61,7 +61,7 @@ export class AddEditUserComponent implements OnInit {
       this._userService.addUser(this.addUser.value).subscribe({
         next: (val: any) => {
           alert('User added successfully!');
-          this._dialogRef.close();
+          this._dialogRef.close(true);
         },
         error: (err: any) => {
           console.error(err);

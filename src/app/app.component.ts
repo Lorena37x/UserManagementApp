@@ -40,8 +40,15 @@ export class AppComponent implements OnInit {
   }
 
   openAddEditUser() {
-    this._dialog.open(AddEditUserComponent);
-    }
+    const dialogRef = this._dialog.open(AddEditUserComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getUserList();
+        }
+      },
+    });
+  }
 
   getUserList() {
     this._userService.getUserList().subscribe({
@@ -64,11 +71,9 @@ export class AppComponent implements OnInit {
   }
 
   deleteUser(id: number) {
-    interface DeleteResponse {}
     this._userService.deleteUser(id).subscribe({
-      next: (res: DeleteResponse) => {
-        alert('User deleted');
-        this.getUserList()
+      next: (res) => {
+        alert('User deleted!');
       },
       error: console.log,
     });

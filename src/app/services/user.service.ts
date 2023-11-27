@@ -17,7 +17,12 @@ export class UserService {
     return this._http.get('http://localhost:3000/users');
   }
 
+  // deleteUser(id: number): Observable<any> {
+  //   return this._http.delete('`http://localhost:3000/users/${id}');
+  // }
+
   deleteUser(id: number): Observable<any> {
-    return this._http.delete('http://localhost:3000/users')
+    const url = `http://localhost:3000/users/${id}`;
+    return this._http.delete(url);
   }
 }
