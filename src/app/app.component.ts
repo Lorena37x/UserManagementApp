@@ -50,6 +50,20 @@ export class AppComponent implements OnInit {
     });
   }
 
+  openEditUser(data: any) {
+    const dialogRef = this._dialog.open(AddEditUserComponent, {
+      data,
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getUserList();
+        }
+      },
+    });
+  }
+
   getUserList() {
     this._userService.getUserList().subscribe({
       next: (res: any[] | undefined) => {

@@ -13,6 +13,10 @@ export class UserService {
     return this._http.post('http://localhost:3000/users', data);
   }
 
+  updateUser(id: number, data: any): Observable<any> {
+    return this._http.put(`http://localhost:3000/users/${id}`, data);
+  }
+
   getUserList(): Observable<any> {
     return this._http.get('http://localhost:3000/users');
   }

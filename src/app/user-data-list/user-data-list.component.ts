@@ -70,6 +70,20 @@ export class UserDataListComponent implements OnInit {
       },
     });
   }
+
+  openEditUser(data: any) {
+    const dialogRef = this._dialog.open(AddEditUserComponent, {
+      data,
+    });
+
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getUserList();
+        }
+      },
+    });
+  }
 }
 
 // export interface UserList {

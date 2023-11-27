@@ -58,16 +58,27 @@ export class AddEditUserComponent implements OnInit {
 
   onSubmit() {
     if (this.addUser.valid) {
-      this._userService.addUser(this.addUser.value).subscribe({
-        next: (val: any) => {
-          alert('User added successfully!');
-          this._dialogRef.close(true);
-        },
-        error: (err: any) => {
-          console.error(err);
-        },
-      });
-      console.log(this.addUser.value)
+      if(this.data) {
+        this._userService.updateUser(this.data.id, this.addUser.value).subscribe({
+          next: (val: any) => {
+            alert('User updated successfully!');
+            this._dialogRef.close(true);
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        });
+      } else {
+        this._userService.addUser(this.addUser.value).subscribe({
+          next: (val: any) => {
+            alert('User added successfully!');
+            this._dialogRef.close(true);
+          },
+          error: (err: any) => {
+            console.error(err);
+          },
+        });
+      }
     }
   }
 }
