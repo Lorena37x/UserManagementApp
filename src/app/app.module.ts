@@ -23,6 +23,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from './auth-guard/auth-guard-service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent, UserManagementComponent, AddEditUserComponent, UserDataListComponent],
@@ -45,7 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     ReactiveFormsModule,
     HttpClientModule],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
