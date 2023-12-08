@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 import { MatDialog } from '@angular/material/dialog';
+import { UserDataListComponent } from '../user-data-list/user-data-list.component';
 
 @Component({
   selector: 'app-user-management',
@@ -10,9 +11,19 @@ import { MatDialog } from '@angular/material/dialog';
 
 export class UserManagementComponent {
 
+  @ViewChild(UserDataListComponent)
+  userListRef!: UserDataListComponent;
+
   constructor(private _dialog: MatDialog) {}
 
-  openAddEditUser() {
-    this._dialog.open(AddEditUserComponent);
+  openAddUser() {
+    const dialogRef = this._dialog.open(AddEditUserComponent);
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.userListRef.getUserList();
+        }
+      },
+    });
   }
 }

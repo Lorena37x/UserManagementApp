@@ -34,15 +34,6 @@ export class UserDataListComponent implements OnInit {
     });
    }
 
-   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
-    }
-  }
-
   deleteUser(id: number) {
     this._userService.deleteUser(id).subscribe({
       next: (res) => {
@@ -50,17 +41,6 @@ export class UserDataListComponent implements OnInit {
         this.getUserList()
       },
       error: console.log,
-    });
-  }
-
-  openAddEditUser() {
-    const dialogRef = this._dialog.open(AddEditUserComponent);
-    dialogRef.afterClosed().subscribe({
-      next: (val) => {
-        if (val) {
-          this.getUserList();
-        }
-      },
     });
   }
 
