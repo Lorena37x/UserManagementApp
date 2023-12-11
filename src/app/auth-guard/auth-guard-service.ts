@@ -31,4 +31,9 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
     }
   }
 
+  logout(): void {
+    // Clear any authentication status or user information
+    sessionStorage.setItem('isLoggedIn', 'false');
+  }
 }
+
