@@ -3,6 +3,7 @@ import { UserService } from '../services/user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
+import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 
 
 @Component({
@@ -44,6 +45,16 @@ export class UserDataListComponent implements OnInit {
     });
   }
 
+  delete(id: any) {
+    const dialogRef = this._dialog.open(ConfirmationDialogComponent);
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this._userService.deleteUser(id);
+      }
+    });
+  }
+
   openEditUser(data: any) {
     const dialogRef = this._dialog.open(AddEditUserComponent, {
       data,
@@ -54,6 +65,18 @@ export class UserDataListComponent implements OnInit {
           this.getUserList();
         }
       },
+    });
+  }
+
+  openConfirmationDialog(userId: number): void {
+    const dialogRef = this._dialog.open(ConfirmationDialogComponent, {
+      data: { message: 'Are you sure you want to delete this user?' },
+    });
+  
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.deleteUser(userId);
+      }
     });
   }
 }

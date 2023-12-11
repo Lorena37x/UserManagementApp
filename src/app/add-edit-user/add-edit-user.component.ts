@@ -32,7 +32,7 @@ export class AddEditUserComponent implements OnInit {
 
   onSubmit() {
     if (this.addUser.valid) {
-      if(this.data) {
+      if (this.data) {
         this._userService.updateUser(this.data.id, this.addUser.value).subscribe({
           next: (val: any) => {
             alert('User updated!');
@@ -53,6 +53,17 @@ export class AddEditUserComponent implements OnInit {
           },
         });
       }
+      // Novo tvoje
+    } else {
+      this._userService.deleteUser(this.data.id).subscribe({
+        next: (val: any) => {
+          alert('User deleted!');
+          this._dialogRef.close(true);
+        },
+        error: (err: any) => {
+          console.error(err);
+        },
+      });
     }
   }
 }
