@@ -32,38 +32,37 @@ export class AddEditUserComponent implements OnInit {
 
   onSubmit() {
     if (this.addUser.valid) {
-      if (this.data) {
-        this._userService.updateUser(this.data.id, this.addUser.value).subscribe({
-          next: (val: any) => {
-            alert('User updated!');
-            this._dialogRef.close(true);
-          },
-          error: (err: any) => {
-            console.error(err);
-          },
-        });
+
+      const firstName = this.addUser.get('firstName')!.value;
+      const lastName = this.addUser.get('lastName')!.value;
+      const phone = this.addUser.get('phone')!.value;
+      const email = this.addUser.get('email')!.value;
+
+      if (firstName && lastName && phone && email) {
+        if (this.data) {
+          this._userService.updateUser(this.data.id, this.addUser.value).subscribe({
+            next: (val: any) => {
+              alert('User updated!');
+              this._dialogRef.close(true);
+            },
+            error: (err: any) => {
+              console.error(err);
+            },
+          });
+        } else {
+          this._userService.addUser(this.addUser.value).subscribe({
+            next: (val: any) => {
+              alert('User added!');
+              this._dialogRef.close(true);
+            },
+            error: (err: any) => {
+              console.error(err);
+            },
+          });
+      }  
       } else {
-        this._userService.addUser(this.addUser.value).subscribe({
-          next: (val: any) => {
-            alert('User added!');
-            this._dialogRef.close(true);
-          },
-          error: (err: any) => {
-            console.error(err);
-          },
-        });
+        alert('Please fill in all the fields');
       }
-      // Novo tvoje
-    } else {
-      this._userService.deleteUser(this.data.id).subscribe({
-        next: (val: any) => {
-          alert('User deleted!');
-          this._dialogRef.close(true);
-        },
-        error: (err: any) => {
-          console.error(err);
-        },
-      });
     }
   }
 }
