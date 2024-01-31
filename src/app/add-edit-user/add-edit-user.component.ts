@@ -30,6 +30,11 @@ export class AddEditUserComponent implements OnInit {
     this.addUser.patchValue(this.data);
   }
 
+  isPhoneNumberValid(phoneNumber: string): boolean {
+    const validPhoneNumberRegex = /^[+0-9\s]+$/;
+    return validPhoneNumberRegex.test(phoneNumber);
+  }
+
   onSubmit() {
     if (this.addUser.valid) {
 
@@ -39,27 +44,32 @@ export class AddEditUserComponent implements OnInit {
       const email = this.addUser.get('email')!.value;
 
       if (firstName && lastName && phone && email) {
-        if (this.data) {
-          this._userService.updateUser(this.data.id, this.addUser.value).subscribe({
-            next: (val: any) => {
-              alert('User updated!');
-              this._dialogRef.close(true);
-            },
-            error: (err: any) => {
-              console.error(err);
-            },
-          });
+        const phoneNumber = this.addUser.get('phone')!.value;
+        if (this.isPhoneNumberValid(phoneNumber)) {
+          if (this.data) {
+            this._userService.updateUser(this.data.id, this.addUser.value).subscribe({
+              next: (val: any) => {
+                alert('User updated!');
+                this._dialogRef.close(true);
+              },
+              error: (err: any) => {
+                console.error(err);
+              },
+            });
+          } else {
+            this._userService.addUser(this.addUser.value).subscribe({
+              next: (val: any) => {
+                alert('User added!');
+                this._dialogRef.close(true);
+              },
+              error: (err: any) => {
+                console.error(err);
+              },
+            });
+          }
         } else {
-          this._userService.addUser(this.addUser.value).subscribe({
-            next: (val: any) => {
-              alert('User added!');
-              this._dialogRef.close(true);
-            },
-            error: (err: any) => {
-              console.error(err);
-            },
-          });
-      }  
+            alert('Phone number can contain only numbers, + and space');
+        }  
       } else {
         alert('Please fill in all the fields');
       }
