@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class UserDataListComponent implements OnInit {
 
   constructor(
     private _userService: UserService,
-    private _dialog: MatDialog
+    private _dialog: MatDialog,
+    private _snackBar: MatSnackBar,
     )
     {}
 
@@ -38,7 +40,9 @@ export class UserDataListComponent implements OnInit {
   deleteUser(id: number) {
     this._userService.deleteUser(id).subscribe({
       next: (res) => {
-        alert('User deleted!');
+        this._snackBar.open('User deleted!', 'Close', {
+          duration: 2000,
+        });
         this.getUserList()
       },
       error: console.log,

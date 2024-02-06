@@ -24,6 +24,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -46,7 +47,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatDialogModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    HttpClientModule],
+    HttpClientModule,
+    MatSnackBarModule],
   providers: [AuthGuardService],
   bootstrap: [AppComponent],
 })

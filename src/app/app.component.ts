@@ -11,7 +11,4 @@ import {MatTableDataSource} from '@angular/material/table';
 })
 export class AppComponent {
   title = 'UserManagementApp';
-
-  constructor() {}
-
- }
+}

@@ -2,6 +2,7 @@ import { Component, Inject, OnInit, inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UserService } from '../services/user.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-edit-user',
@@ -14,6 +15,7 @@ export class AddEditUserComponent implements OnInit {
   constructor(
     private _fb: FormBuilder, 
     private _userService: UserService, 
+    private _snackBar: MatSnackBar,
     private _dialogRef: MatDialogRef<AddEditUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
   
@@ -49,7 +51,9 @@ export class AddEditUserComponent implements OnInit {
           if (this.data) {
             this._userService.updateUser(this.data.id, this.addUser.value).subscribe({
               next: (val: any) => {
-                alert('User updated!');
+                this._snackBar.open('User updated!', 'Close', {
+                  duration: 2000,
+                });
                 this._dialogRef.close(true);
               },
               error: (err: any) => {
@@ -59,7 +63,9 @@ export class AddEditUserComponent implements OnInit {
           } else {
             this._userService.addUser(this.addUser.value).subscribe({
               next: (val: any) => {
-                alert('User added!');
+                this._snackBar.open('User added!', 'Close', {
+                  duration: 2000,
+                });
                 this._dialogRef.close(true);
               },
               error: (err: any) => {
@@ -68,10 +74,14 @@ export class AddEditUserComponent implements OnInit {
             });
           }
         } else {
-            alert('Phone number can contain only numbers, + and space');
+          this._snackBar.open('Please enter a valid phone number with only numbers, +, and space.', 'Close', {
+            duration: 3000,
+          });
         }  
       } else {
-        alert('Please fill in all the fields');
+        this._snackBar.open('Please fill in all required fields: name, surname, phone number, and email.', 'Close', {
+          duration: 4000,
+        });
       }
     }
   }
