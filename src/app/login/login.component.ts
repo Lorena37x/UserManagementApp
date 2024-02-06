@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import {Router} from '@angular/router';
 
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   isLoggedIn: boolean = false;
   login_label: string = '';
 
-  constructor(private router: Router) {
+  constructor(private router: Router,
+    private _snackBar: MatSnackBar) {
     let sessionLogin: string = sessionStorage.getItem('isLoggedIn') || 'false';
     this.isLoggedIn = sessionLogin == 'true' ? true : false;
   }
@@ -30,7 +32,9 @@ export class LoginComponent implements OnInit {
       sessionStorage.setItem('isLoggedIn', this.isLoggedIn + '')
      this.router.navigate(["user-management"]);
     }else {
-      alert("Invalid username or password");
+      this._snackBar.open('Username or password invalid!', 'Close', {
+        duration: 2000,
+      });
     }
   }
   }
