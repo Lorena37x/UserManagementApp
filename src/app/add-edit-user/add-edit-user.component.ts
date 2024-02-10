@@ -40,12 +40,20 @@ export class AddEditUserComponent implements OnInit {
   onSubmit() {
     if (this.addUser.valid) {
 
-      const firstName = this.addUser.get('firstName')!.value;
-      const lastName = this.addUser.get('lastName')!.value;
-      const phone = this.addUser.get('phone')!.value;
-      const email = this.addUser.get('email')!.value;
+      const firstName = this.addUser.get('firstName')?.value;
+      const lastName = this.addUser.get('lastName')?.value;
+      const phone = this.addUser.get('phone')?.value;
+      const email = this.addUser.get('email')?.value;
 
-      if (firstName && lastName && phone && email) {
+      if (!(firstName && lastName && phone && email)) {
+        this._snackBar.open('Please fill in all required fields: name, surname, phone number, and email.', 'Close', {
+          duration: 3000,
+        });
+        document.getElementById("moj")?.setAttribute("class", "secondary");
+        return;
+      }
+
+       {
         const phoneNumber = this.addUser.get('phone')!.value;
         if (this.isPhoneNumberValid(phoneNumber)) {
           if (this.data) {
@@ -78,11 +86,7 @@ export class AddEditUserComponent implements OnInit {
             duration: 3000,
           });
         }  
-      } else {
-        this._snackBar.open('Please fill in all required fields: name, surname, phone number, and email.', 'Close', {
-          duration: 4000,
-        });
-      }
+      } 
     }
   }
 }
