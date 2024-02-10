@@ -49,7 +49,6 @@ export class AddEditUserComponent implements OnInit {
         this._snackBar.open('Please fill in all required fields: name, surname, phone number, and email.', 'Close', {
           duration: 3000,
         });
-        document.getElementById("moj")?.setAttribute("class", "secondary");
         return;
       }
 
