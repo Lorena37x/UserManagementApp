@@ -86,7 +86,8 @@ export class UserDataListComponent implements OnInit {
     });
   }
 
-  openDetails(row: any) {}
-
+  openDetails(userId: number) {
+    this._router.navigate(['/user-details', userId]);
+  }
 }
 
