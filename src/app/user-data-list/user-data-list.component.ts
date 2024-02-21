@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddEditUserComponent } from '../add-edit-user/add-edit-user.component';
 import { ConfirmationDialogComponent } from '../confirmation-dialog/confirmation-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class UserDataListComponent implements OnInit {
     private _userService: UserService,
     private _dialog: MatDialog,
     private _snackBar: MatSnackBar,
+    private _router: Router,
     )
     {}
 
@@ -83,5 +85,8 @@ export class UserDataListComponent implements OnInit {
       }
     });
   }
+
+  openDetails(row: any) {}
+
 }
 
