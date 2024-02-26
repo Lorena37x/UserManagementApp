@@ -1,1 +1,39 @@
-<p>user-details works!</p>
+<div *ngIf="userData" class="user-details">
+    <h2>Detalji</h2>
+    <div class="user-info">
+        <p><strong>Ime:</strong> {{ userData.firstName }}</p>
+        <p><strong>Prezime:</strong> {{ userData.lastName }}</p>
+        <p><strong>Broj telefona:</strong> {{ userData.phone }}</p>
+        <p><strong>E-mail:</strong> {{ userData.email }}</p>
+    </div>
+</div>
+
+<div *ngIf="nutritionInfo" class="nutrition-info">
+    <h2>Prehrana</h2>
+    <table class="meal-table">
+        <thead>
+            <tr>
+                <th>Obrok</th>
+                <th>Vrijeme</th>
+                <th>Hrana</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let meal of nutritionInfo" class="meal-row">
+                <td class="meal-type">Doručak</td>
+                <td>{{ meal.dorucak[0].vrijeme }}</td>
+                <td>{{ meal.dorucak[0].hrana }}</td>
+            </tr>
+            <tr *ngFor="let meal of nutritionInfo" class="meal-row">
+                <td class="meal-type">Ručak</td>
+                <td>{{ meal.rucak[0].vrijeme }}</td>
+                <td>{{ meal.rucak[0].hrana }}</td>
+            </tr>
+            <tr *ngFor="let meal of nutritionInfo" class="meal-row">
+                <td class="meal-type">Večera</td>
+                <td>{{ meal.vecera[0].vrijeme }}</td>
+                <td>{{ meal.vecera[0].hrana }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

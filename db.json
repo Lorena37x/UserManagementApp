@@ -83,9 +83,209 @@
     {
       "firstName": "Ivan",
       "lastName": "Horvat",
-      "phone": "0913759123",
-      "email": "ivan.horvat96@gmail.com",
+      "phone": "0913337775",
+      "email": "ivanhorvat96@gmail.com",
       "id": 10
+    }
+  ],
+  "prehrana": [
+    {
+      "id": 1,
+      "userId": 1,
+      "dorucak": [
+        {
+          "vrijeme": "10:00",
+          "hrana": "palačinke s Nutellom"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "14:00",
+          "hrana": "pizza"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "20:00",
+          "hrana": "tost"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "dorucak": [
+        {
+          "vrijeme": "08:00",
+          "hrana": "sendvič"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "12:00",
+          "hrana": "purica i mlinci"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "18:00",
+          "hrana": "pizza"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "userId": 3,
+      "dorucak": [
+        {
+          "vrijeme": "09:00",
+          "hrana": "tost"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "15:00",
+          "hrana": "špageti bolognese"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "21:00",
+          "hrana": "burek"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "userId": 4,
+      "dorucak": [
+        {
+          "vrijeme": "07:00",
+          "hrana": "burek sa sirom"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "13:00",
+          "hrana": "pečeno meso i krumpir"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "19:00",
+          "hrana": "jabuka"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "userId": 5,
+      "dorucak": [
+        {
+          "vrijeme": "09:30",
+          "hrana": "zobene pahuljice"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "13:30",
+          "hrana": "špageti carbonara"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "19:30",
+          "hrana": "palačinke s marmeladom"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "userId": 6,
+      "dorucak": [
+        {
+          "vrijeme": "/",
+          "hrana": "/"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "12:00",
+          "hrana": "makaroni sa sirom"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "18:30",
+          "hrana": "salata od tune"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "userId": 7,
+      "dorucak": [
+        {
+          "vrijeme": "10:30",
+          "hrana": "palačinke s čokoladom"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "14:30",
+          "hrana": "lasagne"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "/",
+          "hrana": "/"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "userId": 8,
+      "dorucak": [
+        {
+          "vrijeme": "06:00",
+          "hrana": "kajgana"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "11:30",
+          "hrana": "grah varivo"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "17:30",
+          "hrana": "ćevapi"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "userId": 9,
+      "dorucak": [
+        {
+          "vrijeme": "07:30",
+          "hrana": "jogurt"
+        }
+      ],
+      "ručak": [
+        {
+          "vrijeme": "12:30",
+          "hrana": "gulaš"
+        }
+      ],
+      "večera": [
+        {
+          "vrijeme": "21:30",
+          "hrana": "burek s mesom"
+        }
+      ]
     }
   ]
 }
