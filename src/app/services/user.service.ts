@@ -26,8 +26,16 @@ export class UserService {
     return this._http.post('http://localhost:3000/users', data);
   }
 
+  addNutrition(data: any): Observable<any> {
+    return this._http.post(`http://localhost:3000/prehrana`, data);
+  }
+
   updateUser(id: number, data: any): Observable<any> {
     return this._http.put(`http://localhost:3000/users/${id}`, data);
+  }
+  
+  updateNutrition(id: number, data: any): Observable<any> {
+    return this._http.put(`http://localhost:3000/prehrana/${id}`, data);
   }
 
   deleteUser(id: number): Observable<any> {

@@ -27,9 +27,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { UserDetailsComponent } from './user-details/user-details.component';
+import { AddEditNutritionComponent } from './add-edit-nutrition/add-edit-nutrition.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, UserManagementComponent, AddEditUserComponent, UserDataListComponent, ConfirmationDialogComponent, UserDetailsComponent],
+  declarations: [AppComponent, LoginComponent, UserManagementComponent, AddEditUserComponent, UserDataListComponent, ConfirmationDialogComponent, UserDetailsComponent, AddEditNutritionComponent],
   imports: [BrowserModule, 
     FormsModule, 
     AppRoutingModule, 

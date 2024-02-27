@@ -274,16 +274,38 @@
           "hrana": "jogurt"
         }
       ],
-      "ručak": [
+      "rucak": [
         {
           "vrijeme": "12:30",
           "hrana": "gulaš"
         }
       ],
-      "večera": [
+      "vecera": [
         {
           "vrijeme": "21:30",
           "hrana": "burek s mesom"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "userId": 10,
+      "dorucak": [
+        {
+          "vrijeme": "09:00",
+          "hrana": "hot dog"
+        }
+      ],
+      "rucak": [
+        {
+          "vrijeme": "14:00",
+          "hrana": "riba"
+        }
+      ],
+      "vecera": [
+        {
+          "vrijeme": "21:00",
+          "hrana": "sendvič"
         }
       ]
     }
