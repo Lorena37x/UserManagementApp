@@ -7,38 +7,38 @@
             <h2>Doručak</h2>
             <mat-form-field>
                 <mat-label>Vrijeme</mat-label>
-                <input matInput formControlName="dorucak.vrijeme">
+                <input matInput formControlName="dorucakVrijeme">
             </mat-form-field> 
             <mat-form-field>
                 <mat-label>Hrana</mat-label>
-                <input matInput formControlName="dorucak.hrana">
+                <input matInput formControlName="dorucakHrana">
             </mat-form-field> 
         </div>
         <div class="row">
             <h2>Ručak</h2>
             <mat-form-field>
                 <mat-label>Vrijeme</mat-label>
-                <input matInput formControlName="rucak.vrijeme">
+                <input matInput formControlName="rucakVrijeme">
             </mat-form-field>  
             <mat-form-field>
                 <mat-label>Hrana</mat-label>
-                <input matInput formControlName="rucak.hrana">
+                <input matInput formControlName="rucakHrana">
             </mat-form-field> 
         </div>
         <div class="row">
             <h2>Večera</h2>
             <mat-form-field>
                 <mat-label>Vrijeme</mat-label>
-                <input matInput formControlName="vecera.vrijeme">
+                <input matInput formControlName="veceraVrijeme">
             </mat-form-field>  
             <mat-form-field>
                 <mat-label>Hrana</mat-label>
-                <input matInput formControlName="vecera.hrana">
+                <input matInput formControlName="veceraHrana">
             </mat-form-field> 
         </div>
     </div>
     <div mat-dialog-actions class="action">
-        <button mat-raised-button color="primary" type="submit">{{ data ? 'Update' : 'Add' }}</button>
+        <button mat-raised-button color="primary" type="submit">{{ data.nutritionInfo[0]?.dorucak[0]?.vrijeme ? 'Update' : 'Add' }}</button>
         <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
     </div>
 </form>

@@ -14,8 +14,6 @@ export class UserDetailsComponent implements OnInit {
   userId!: number;
   userData: any;
   nutritionInfo: any;
-  // showEditForm: boolean = false;
-  // editMeal: any = {};
 
   constructor(private route: ActivatedRoute, 
               private userService: UserService,
@@ -56,6 +54,15 @@ export class UserDetailsComponent implements OnInit {
         nutritionInfo: this.nutritionInfo
       }
     });
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getUserData();
+        }
+      },
+    });
   }
 }
+
+
 
