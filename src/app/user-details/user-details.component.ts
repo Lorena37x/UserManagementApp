@@ -39,7 +39,7 @@ export class UserDetailsComponent implements OnInit {
       });
   }
 
-  openAddEditNutrition() {
+  addNutrition() {
     const dialogRef = this.dialog.open(AddEditNutritionComponent, {
       width: '500px',
       data: {
@@ -54,6 +54,30 @@ export class UserDetailsComponent implements OnInit {
         }
       },
     });
+  }
+
+  editNutrition(meal: any) {
+    const dialogRef = this.dialog.open(AddEditNutritionComponent, {
+      width: '500px',
+      data: { meal,
+              userId: this.userId,
+              nutritionData: this.nutritionData }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.getUserData();
+      }
+    });
+  }
+
+  deleteNutrition(mealId: number) {
+    this.userService.deleteNutrition(mealId).subscribe(
+      (response: any) => {
+        console.log('Food deleted!', response);
+        this.getUserData();
+      },
+    );
   }
 }
 

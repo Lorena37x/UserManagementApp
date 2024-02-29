@@ -10,7 +10,7 @@
 
 <div *ngIf="nutritionData" class="nutrition-data">
     <h2>Prehrana</h2>
-    <button mat-raised-button color="primary" (click)="openAddEditNutrition()">Dodaj prehranu</button>
+    <button mat-raised-button color="primary" (click)="addNutrition()">Dodaj prehranu</button>
     <table class="meal-table">
         <thead>
             <tr>
@@ -19,10 +19,18 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let meal of nutritionData" class="meal-row">
+            <tr *ngFor="let meal of nutritionData">
                 <td>{{ meal.vrijeme }}</td>
                 <td>{{ meal.hrana }}</td>
-            </tr>
+                <td>
+                  <button mat-icon-button color="primary" (click)="editNutrition(meal)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                  <button mat-icon-button color="warn" (click)="deleteNutrition(meal.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+                </td>
+              </tr>
         </tbody>
     </table>
 </div>

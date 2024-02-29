@@ -115,10 +115,10 @@
       "hrana": "tost"
     },
     {
-      "id": 4,
       "userId": 2,
       "vrijeme": "08:00",
-      "hrana": "sendvič"
+      "hrana": "sendvič",
+      "id": 4
     }
   ]
 }

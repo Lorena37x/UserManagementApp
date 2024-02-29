@@ -21,8 +21,8 @@ export class AddEditNutritionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.nutritionForm = this.fb.group({
-      dorucakVrijeme: this.data.nutritionData.vrijeme ?? '',
-      dorucakHrana: this.data.nutritionData.hrana ?? '',
+      prehranaVrijeme: this.data.nutritionData.vrijeme ?? '',
+      prehranaHrana: this.data.nutritionData.hrana ?? '',
     });
   }
 
@@ -38,14 +38,14 @@ export class AddEditNutritionComponent implements OnInit {
       const updatedData: PrehranaView = {
         id: this.data.id,
         userId: this.data.userId,
-        vrijeme: this.nutritionForm.value.dorucakVrijeme,
-        hrana:  this.nutritionForm.value.dorucakHrana
+        vrijeme: this.nutritionForm.value.prehranaVrijeme,
+        hrana:  this.nutritionForm.value.prehranaHrana
       };
         
       if (this.data.nutritionData.id) {
         this._userService.updateNutrition(this.data.userId, updatedData).subscribe({
           next: (val: any) => {
-            this._snackBar.open('Nutrition updated!', 'Close', { duration: 2000 });
+            this._snackBar.open('Meal updated!', 'Close', { duration: 2000 });
             this._dialogRef.close(true);
           },
           error: (err: any) => {
@@ -55,7 +55,7 @@ export class AddEditNutritionComponent implements OnInit {
       } else {
         this._userService.addNutrition(updatedData).subscribe({
           next: (val: any) => {
-            this._snackBar.open('Nutrition added!', 'Close', { duration: 2000 });
+            this._snackBar.open('Meal added!', 'Close', { duration: 2000 });
             this._dialogRef.close(true);
           },
           error: (err: any) => {

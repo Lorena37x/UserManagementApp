@@ -43,4 +43,8 @@ export class UserService {
   deleteUser(id: number): Observable<any> {
     return this._http.delete(`http://localhost:3000/users/${id}`);
   }
+
+  deleteNutrition(id: number): Observable<any> {
+    return this._http.delete(`http://localhost:3000/prehrana/${id}`);
+  }
 }
