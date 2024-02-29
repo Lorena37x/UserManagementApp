@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from '../services/user.service';
+import { PrehranaView } from '../core/modules/prehrana-view';
 
 @Component({
   selector: 'app-add-edit-nutrition',
@@ -20,12 +21,8 @@ export class AddEditNutritionComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.nutritionForm = this.fb.group({
-      dorucakVrijeme: this.data.nutritionInfo[0]?.dorucak[0]?.vrijeme ?? '',
-      dorucakHrana: this.data.nutritionInfo[0]?.dorucak[0]?.hrana ?? '',
-      rucakVrijeme: this.data.nutritionInfo[0]?.rucak[0]?.vrijeme ?? '',
-      rucakHrana: this.data.nutritionInfo[0]?.rucak[0]?.hrana ?? '',
-      veceraVrijeme: this.data.nutritionInfo[0]?.vecera[0]?.vrijeme ?? '',
-      veceraHrana: this.data.nutritionInfo[0]?.vecera[0]?.hrana ?? '',
+      dorucakVrijeme: this.data.nutritionData.vrijeme ?? '',
+      dorucakHrana: this.data.nutritionData.hrana ?? '',
     });
   }
 
@@ -38,29 +35,14 @@ export class AddEditNutritionComponent implements OnInit {
   onSubmit() {
     if (this.nutritionForm.valid) {
 
-      const updatedData = {
+      const updatedData: PrehranaView = {
+        id: this.data.id,
         userId: this.data.userId,
-        dorucak: [
-          {
-            vrijeme: this.nutritionForm.value.dorucakVrijeme,
-            hrana:  this.nutritionForm.value.dorucakHrana,
-          }
-        ],
-        rucak: [
-          {
-            vrijeme: this.nutritionForm.value.rucakVrijeme,
-            hrana:  this.nutritionForm.value.rucakHrana,
-          }
-        ],
-        vecera: [
-          {
-            vrijeme: this.nutritionForm.value.veceraVrijeme,
-            hrana:  this.nutritionForm.value.veceraHrana,
-          }
-        ]
-
-      }
-      if (this.data.nutritionInfo[0]?.dorucak[0]?.vrijeme) {
+        vrijeme: this.nutritionForm.value.dorucakVrijeme,
+        hrana:  this.nutritionForm.value.dorucakHrana
+      };
+        
+      if (this.data.nutritionData.id) {
         this._userService.updateNutrition(this.data.userId, updatedData).subscribe({
           next: (val: any) => {
             this._snackBar.open('Nutrition updated!', 'Close', { duration: 2000 });

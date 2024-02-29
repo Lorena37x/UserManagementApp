@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { UserService } from '../services/user.service';
-import { HttpErrorResponse } from '@angular/common/http';
 import { AddEditNutritionComponent } from '../add-edit-nutrition/add-edit-nutrition.component';
 import { MatDialog } from '@angular/material/dialog';
+import { PrehranaView } from '../core/modules/prehrana-view';
+import { UserView } from '../core/modules/user-view';
 
 @Component({
   selector: 'app-user-details',
@@ -12,8 +13,8 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class UserDetailsComponent implements OnInit {
   userId!: number;
-  userData: any;
-  nutritionInfo: any;
+  userData!: UserView;
+  nutritionData: PrehranaView[] = [];
 
   constructor(private route: ActivatedRoute, 
               private userService: UserService,
@@ -28,22 +29,14 @@ export class UserDetailsComponent implements OnInit {
 
   getUserData() {
     this.userService.getUserData(this.userId).subscribe(
-      (user: any) => {
+      (user: UserView) => {
         this.userData = user;
-      },
-      (error: HttpErrorResponse) => {
-        console.error('Error fetching user data:', error);
-      }
-    );
+      });
 
     this.userService.getNutritionData(this.userId).subscribe(
-      (nutrition: any) => {
-        this.nutritionInfo = nutrition;
-      },
-      (error: HttpErrorResponse) => {
-        console.error('Error fetching nutrition data:', error);
-      }
-    );
+      (nutrition: PrehranaView[]) => {
+        this.nutritionData = nutrition.sort((a, b) => Date.parse('01-01-2023 ' + a.vrijeme) -  Date.parse('01-01-2023 ' + b.vrijeme));
+      });
   }
 
   openAddEditNutrition() {
@@ -51,7 +44,7 @@ export class UserDetailsComponent implements OnInit {
       width: '500px',
       data: {
         userId: this.userId,
-        nutritionInfo: this.nutritionInfo
+        nutritionData: this.nutritionData
       }
     });
     dialogRef.afterClosed().subscribe({

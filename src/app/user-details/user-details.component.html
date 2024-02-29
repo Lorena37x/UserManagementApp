@@ -8,33 +8,21 @@
     </div>
 </div>
 
-<div *ngIf="nutritionInfo" class="nutrition-info">
+<div *ngIf="nutritionData" class="nutrition-data">
     <h2>Prehrana</h2>
+    <button mat-raised-button color="primary" (click)="openAddEditNutrition()">Dodaj prehranu</button>
     <table class="meal-table">
         <thead>
             <tr>
-                <th>Obrok</th>
                 <th>Vrijeme</th>
                 <th>Hrana</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let meal of nutritionInfo" class="meal-row">
-                <td class="meal-type">Doručak</td>
-                <td>{{ meal.dorucak[0].vrijeme }}</td>
-                <td>{{ meal.dorucak[0].hrana }}</td>
-            </tr>
-            <tr *ngFor="let meal of nutritionInfo" class="meal-row">
-                <td class="meal-type">Ručak</td>
-                <td>{{ meal.rucak[0].vrijeme }}</td>
-                <td>{{ meal.rucak[0].hrana }}</td>
-            </tr>
-            <tr *ngFor="let meal of nutritionInfo" class="meal-row">
-                <td class="meal-type">Večera</td>
-                <td>{{ meal.vecera[0].vrijeme }}</td>
-                <td>{{ meal.vecera[0].hrana }}</td>
+            <tr *ngFor="let meal of nutritionData" class="meal-row">
+                <td>{{ meal.vrijeme }}</td>
+                <td>{{ meal.hrana }}</td>
             </tr>
         </tbody>
     </table>
-    <button mat-raised-button color="primary" (click)="openAddEditNutrition()">Uredi prehranu</button>
 </div>
