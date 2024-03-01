@@ -10,7 +10,7 @@
       
 <div *ngIf="nutritionData" class="nutrition-data">
     <div class="nutrition-wrapper">
-        <h2>Detalji</h2>
+        <h2>Prehrana</h2>
     <button mat-raised-button color="primary" (click)="addNutrition()">Dodaj</button>
     </div>
     <table class="meal-table">
@@ -25,7 +25,7 @@
                 <td>{{ meal.vrijeme }}</td>
                 <td>{{ meal.hrana }}</td>
                 <td>
-                  <button mat-icon-button color="primary" (click)="editNutrition(meal.id)">
+                  <button mat-icon-button color="primary" (click)="editNutrition(meal)">
                   <mat-icon>edit</mat-icon>
                 </button>
                   <button mat-icon-button color="warn" (click)="deleteNutrition(meal.id)">
@@ -34,11 +34,14 @@
                 </td>
               </tr>
         </tbody>
+    </table>
 
 <div *ngIf="foodData" class="food-data">
+    <div class="nutrition-wrapper button-2">
     <h2>Hrana</h2>
     <button mat-raised-button color="primary" (click)="addFood()">Dodaj</button>
-    <table class="food-table">
+    </div>
+    <table class="meal-table food-table">
         <thead>
             <tr>
                 <th>Naziv hrane</th>

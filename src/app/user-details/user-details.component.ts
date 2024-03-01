@@ -68,12 +68,12 @@ export class UserDetailsComponent implements OnInit {
     });
   }
 
-  editNutrition(id: number) {
+  editNutrition(meal: PrehranaView) {
     const dialogRef = this.dialog.open(EditNutritionComponent, {
       width: '500px',
-      data: { id,
-              mealId: this.mealId,
-              nutritionData: this.nutritionData,
+      data: { id: meal.id,
+              userId: this.userId,
+              nutritionData: meal,
               foodData: this.foodData 
       }
     });

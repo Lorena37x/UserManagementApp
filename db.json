@@ -97,28 +97,16 @@
   ],
   "prehrana": [
     {
-      "userId": 1,
-      "vrijeme": "10:00",
-      "hrana": "palačinke s čokoladom",
-      "id": 1
-    },
-    {
+      "id": 1,
       "userId": 1,
       "vrijeme": "14:00",
-      "hrana": "pizza",
-      "id": 2
-    },
-    {
-      "userId": 1,
-      "vrijeme": "20:00",
-      "hrana": "tost",
-      "id": 3
+      "hrana": "pizza"
     },
     {
       "userId": 2,
       "vrijeme": "08:00",
-      "hrana": "sendvič",
-      "id": 4
+      "hrana": "jabuka",
+      "id": 2
     }
   ],
   "hrana": [
@@ -138,19 +126,54 @@
       "naziv": "burger"
     },
     {
-      "id": 4,
       "userId": 2,
-      "naziv": "piletina"
+      "naziv": "jabuka",
+      "id": 4
     },
     {
-      "id": 5,
       "userId": 2,
-      "naziv": "puretina"
+      "naziv": "kruška",
+      "id": 5
     },
     {
-      "id": 6,
       "userId": 2,
-      "naziv": "svinjetina"
+      "naziv": "banana",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "naziv": "tjestenina",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "naziv": "lasagne",
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "naziv": "sir",
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "naziv": "šunka",
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "naziv": "jagode",
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "naziv": "špinat",
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "naziv": "čokolada",
+      "id": 13
     }
   ]
 }

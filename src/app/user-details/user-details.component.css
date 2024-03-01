@@ -18,7 +18,7 @@
 }
 
 .meal-table {
-    width: 50%;
+    width: 42%;
     border-collapse: collapse;
     margin-top: 10px;
 }
@@ -47,7 +47,11 @@
     padding: 0 20px;
 }
 .nutrition-data h2 {
-    margin-right: 168px;
+    margin-right: 238px;
+}
+
+.button-2 h2 {
+    margin-right: 115px;
 }
 
 .container {
@@ -56,5 +60,10 @@
   
 .table-container {
 flex: 2;
+}
+
+.food-data {
+    margin-top: 50px;
+    width: 50%;
 }
   
