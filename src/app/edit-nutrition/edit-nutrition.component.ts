@@ -6,18 +6,18 @@ import { UserService } from '../services/user.service';
 import { PrehranaView } from '../core/modules/prehrana-view';
 
 @Component({
-  selector: 'app-add-edit-nutrition',
-  templateUrl: './add-edit-nutrition.component.html',
-  styleUrls: ['./add-edit-nutrition.component.css']
+  selector: 'app-edit-nutrition',
+  templateUrl: './edit-nutrition.component.html',
+  styleUrls: ['./edit-nutrition.component.css']
 })
-export class AddEditNutritionComponent implements OnInit {
+export class EditNutritionComponent implements OnInit {
   nutritionForm: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private _userService: UserService,
     private _snackBar: MatSnackBar,
-    private _dialogRef: MatDialogRef<AddEditNutritionComponent>,
+    private _dialogRef: MatDialogRef<EditNutritionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.nutritionForm = this.fb.group({
@@ -30,11 +30,22 @@ export class AddEditNutritionComponent implements OnInit {
     if (this.data) {
       this.nutritionForm.patchValue(this.data);
     }
+    console.log(this.data)
   }
 
   onSubmit() {
     if (this.nutritionForm.valid) {
 
+      const vrijeme = this.nutritionForm.get('prehranaVrijeme')?.value;
+      const hrana = this.nutritionForm.get('prehranaHrana')?.value;
+
+      if (!(vrijeme && hrana)) {
+        this._snackBar.open('Please fill in all required fields: time and food', 'Close', {
+          duration: 3000,
+        });
+        return;
+      }
+      
       const updatedData: PrehranaView = {
         id: this.data.id,
         userId: this.data.userId,
@@ -42,20 +53,9 @@ export class AddEditNutritionComponent implements OnInit {
         hrana:  this.nutritionForm.value.prehranaHrana
       };
         
-      if (this.data.nutritionData.id) {
-        this._userService.updateNutrition(this.data.userId, updatedData).subscribe({
+        this._userService.updateNutrition(this.data.id, updatedData).subscribe({
           next: (val: any) => {
             this._snackBar.open('Meal updated!', 'Close', { duration: 2000 });
-            this._dialogRef.close(true);
-          },
-          error: (err: any) => {
-            console.error(err);
-          }
-        });
-      } else {
-        this._userService.addNutrition(updatedData).subscribe({
-          next: (val: any) => {
-            this._snackBar.open('Meal added!', 'Close', { duration: 2000 });
             this._dialogRef.close(true);
           },
           error: (err: any) => {
@@ -65,5 +65,3 @@ export class AddEditNutritionComponent implements OnInit {
       }
     }
   }
-}
-

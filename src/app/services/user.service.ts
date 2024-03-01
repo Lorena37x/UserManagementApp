@@ -24,12 +24,20 @@ export class UserService {
     return this._http.get<UserView[]>('http://localhost:3000/users');
   }
 
+  getFoodList(id: number): Observable<any[]> {
+    return this._http.get<any[]>(`http://localhost:3000/hrana?userId=${id}`);
+  }
+
   addUser(data: UserView): Observable<any> {
     return this._http.post('http://localhost:3000/users', data);
   }
 
   addNutrition(data: PrehranaView): Observable<any> {
     return this._http.post(`http://localhost:3000/prehrana`, data);
+  }
+
+  addFood(data: any): Observable<any> {
+    return this._http.post(`http://localhost:3000/hrana`, data);
   }
 
   updateUser(id: number, data: UserView): Observable<any> {
@@ -46,5 +54,9 @@ export class UserService {
 
   deleteNutrition(id: number): Observable<any> {
     return this._http.delete(`http://localhost:3000/prehrana/${id}`);
+  }
+
+  deleteFood(id: number): Observable<any> {
+    return this._http.delete(`http://localhost:3000/hrana/${id}`);
   }
 }

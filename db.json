@@ -97,28 +97,60 @@
   ],
   "prehrana": [
     {
-      "id": 1,
       "userId": 1,
       "vrijeme": "10:00",
-      "hrana": "palačinke s Nutellom"
+      "hrana": "palačinke s čokoladom",
+      "id": 1
     },
     {
-      "id": 2,
       "userId": 1,
       "vrijeme": "14:00",
-      "hrana": "pizza"
+      "hrana": "pizza",
+      "id": 2
     },
     {
-      "id": 3,
       "userId": 1,
-      "vrijeme": "22:00",
-      "hrana": "tost"
+      "vrijeme": "20:00",
+      "hrana": "tost",
+      "id": 3
     },
     {
       "userId": 2,
       "vrijeme": "08:00",
       "hrana": "sendvič",
       "id": 4
+    }
+  ],
+  "hrana": [
+    {
+      "id": 1,
+      "userId": 1,
+      "naziv": "pizza"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "naziv": "ćevapi"
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "naziv": "burger"
+    },
+    {
+      "id": 4,
+      "userId": 2,
+      "naziv": "piletina"
+    },
+    {
+      "id": 5,
+      "userId": 2,
+      "naziv": "puretina"
+    },
+    {
+      "id": 6,
+      "userId": 2,
+      "naziv": "svinjetina"
     }
   ]
 }

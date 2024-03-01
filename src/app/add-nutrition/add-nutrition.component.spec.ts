@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddEditNutritionComponent } from './add-edit-nutrition.component';
+import { AddNutritionComponent } from './add-nutrition.component';
 
 describe('AddEditNutritionComponent', () => {
-  let component: AddEditNutritionComponent;
-  let fixture: ComponentFixture<AddEditNutritionComponent>;
+  let component: AddNutritionComponent;
+  let fixture: ComponentFixture<AddNutritionComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [AddEditNutritionComponent]
+      declarations: [AddNutritionComponent]
     });
-    fixture = TestBed.createComponent(AddEditNutritionComponent);
+    fixture = TestBed.createComponent(AddNutritionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

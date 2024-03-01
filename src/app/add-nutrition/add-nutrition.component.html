@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-    <h1>Uredi prehranu</h1>
+    <h1>Dodaj obrok</h1>
 </div>
 <form [formGroup]="nutritionForm" (ngSubmit)="onSubmit()">
     <div mat-dialog-content>
@@ -10,12 +10,14 @@
             </mat-form-field> 
             <mat-form-field>
                 <mat-label>Hrana</mat-label>
-                <input matInput formControlName="prehranaHrana">
+                <mat-select formControlName="prehranaHrana">
+                    <mat-option *ngFor="let food of data.foodData" [value]="food.naziv">{{ food.naziv }}</mat-option>
+                </mat-select>
             </mat-form-field> 
         </div>
     </div>
     <div mat-dialog-actions class="action">
-        <button mat-raised-button color="primary" type="submit">{{ data.nutritionData.id ? 'Update' : 'Add' }}</button>
+        <button mat-raised-button color="primary" type="submit">{{ 'Save' }}</button>
         <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
     </div>
 </form>

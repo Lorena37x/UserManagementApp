@@ -18,7 +18,7 @@
 }
 
 .meal-table {
-    width: 100%;
+    width: 50%;
     border-collapse: collapse;
     margin-top: 10px;
 }
@@ -40,3 +40,21 @@
 .meal-type {
     font-weight: bold;
 }
+.nutrition-wrapper {
+    display: flex;
+}
+.nutrition-data {
+    padding: 0 20px;
+}
+.nutrition-data h2 {
+    margin-right: 168px;
+}
+
+.container {
+    display: flex;
+  }
+  
+.table-container {
+flex: 2;
+}
+  
