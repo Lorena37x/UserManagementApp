@@ -8,6 +8,7 @@ import { PrehranaView } from '../core/modules/prehrana-view';
 import { UserView } from '../core/modules/user-view';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddFoodComponent } from '../add-food/add-food.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-details',
@@ -24,7 +25,8 @@ export class UserDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, 
               private userService: UserService,
               private dialog: MatDialog,
-              private snackBar: MatSnackBar) {}
+              private snackBar: MatSnackBar,
+              private router: Router) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
@@ -122,6 +124,10 @@ export class UserDetailsComponent implements OnInit {
         this.getUserData();
       },
     );
+  }
+
+  goBack() {
+    this.router.navigate(['/user-management']);
   }
 }
 

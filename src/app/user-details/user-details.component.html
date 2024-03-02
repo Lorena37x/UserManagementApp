@@ -1,5 +1,8 @@
 <div *ngIf="userData" class="user-details">
-    <h2>Detalji</h2>
+    <div class="nutrition-wrapper button">
+        <h2>Detalji</h2>
+    <button mat-raised-button (click)="goBack()">Natrag</button>
+    </div>
     <div class="user-info">
         <p><strong>Ime:</strong> {{ userData.firstName }}</p>
         <p><strong>Prezime:</strong> {{ userData.lastName }}</p>
@@ -9,7 +12,7 @@
 </div>
       
 <div *ngIf="nutritionData" class="nutrition-data">
-    <div class="nutrition-wrapper">
+    <div class="nutrition-wrapper button-2">
         <h2>Prehrana</h2>
     <button mat-raised-button color="primary" (click)="addNutrition()">Dodaj</button>
     </div>
@@ -37,7 +40,7 @@
     </table>
 
 <div *ngIf="foodData" class="food-data">
-    <div class="nutrition-wrapper button-2">
+    <div class="nutrition-wrapper button-3">
     <h2>Hrana</h2>
     <button mat-raised-button color="primary" (click)="addFood()">Dodaj</button>
     </div>
