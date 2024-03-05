@@ -114,12 +114,6 @@
       "vrijeme": "08:00",
       "hrana": "jabuka",
       "id": 2
-    },
-    {
-      "userId": 12,
-      "vrijeme": "10:00",
-      "hrana": "sir",
-      "id": 3
     }
   ],
   "hrana": [
@@ -187,16 +181,6 @@
       "userId": 1,
       "naziv": "čokolada",
       "id": 13
-    },
-    {
-      "userId": 12,
-      "naziv": "palačinke",
-      "id": 14
-    },
-    {
-      "userId": 12,
-      "naziv": "sir",
-      "id": 15
     }
   ]
 }
